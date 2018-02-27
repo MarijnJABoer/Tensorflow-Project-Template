@@ -10,7 +10,8 @@ def get_config_from_json(json_file):
     :return: config(namespace) or config(dictionary)
     """
     # parse the configurations from the config json file provided
-    with open(json_file, 'r') as config_file:
+    with open(json_file,
+              'r') as config_file:
         config_dict = json.load(config_file)
 
     # convert the dictionary to a namespace using bunch lib
@@ -21,6 +22,10 @@ def get_config_from_json(json_file):
 
 def process_config(jsonfile):
     config, _ = get_config_from_json(jsonfile)
-    config.summary_dir = os.path.join("../experiments", config.exp_name, "summary/")
-    config.checkpoint_dir = os.path.join("../experiments", config.exp_name, "checkpoint/")
+    config.summary_dir = os.path.join("../experiments",
+                                      config.exp_name,
+                                      "summary/")
+    config.checkpoint_dir = os.path.join("../experiments",
+                                         config.exp_name,
+                                         "checkpoint/")
     return config
